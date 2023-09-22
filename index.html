@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Infinite Trash</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+<body>
+    <header>
+    <a href="#" class="logo">Infinite Trash</a>
+    <nav class="navlist">
+    <a href="#">Home</a>
+    <a href="#">Edukasi</a>
+    <a href="#">Fitur</a>
+    <a href="#">Tentang</a>
+    <a href="https://skilvul.com" id="link">Kontak</a>
+    <a href="#">Masuk</a>
+    <a href="#">Daftar</a>
+</nav>
+
+<div class="bx bx-menu" id="menu-icon"></div>
+</header>
+<div class="hero-image">
+    <div class="content-slide">
+        <div class="imgslide fade">
+            <img src="https://i.imgur.com/xt46tNz.jpg"/>
+        </div> 
+        <div class="imgslide fade">
+            <img src="https://i.imgur.com/MC9m7aJ.png" />
+        </div>
+        <a class="prev" onClick="nextslide(-1)">&#10094;</a>
+        <a class="next" onClick="nextslide(1)">&#10095;</a>
+    </div>
+    <div class="page">
+        <span class="dot" onClick="dotslide(1)"></span>
+        <span class="dot" onClick="dotslide(2)"></span>
+    </div>
+</div>
+<script>
+    var slideIndex = 1;
+        showSlide(slideIndex);
+
+    function nextslide(n){
+        showSlide(slideIndex += n);
+    }
+
+    function dotslide(n){
+        showSlide(slideIndex = n);
+    }
+
+    function showSlide(n) {
+        var i;
+        var slides = document.getElementsByClassName("imgslide");
+        var dot = document.getElementsByClassName("dot");
+        
+        if (n > slides.length) {
+            slideIndex = 1
+        }
+        if (n < 1) {
+            slideIndex = slides.length;
+        }
+        for (i = 0; i < slides.length; i++) {
+            
+            slides[i].style.display = "none";
+        }
+
+        for (i = 0; i < slides.length; i++) {
+            
+            dot[i].className = dot[i].className.replace(" active", "");
+        }
+
+        slides[slideIndex - 1].style.display = "block";
+
+        dot[slideIndex - 1].className += " active";
+        
+
+
+    }
+</script>
+<br>
+<hr>
+<br>
+<section>
+    <div class="hero-text">
+    <h2>Mengelola sampah dengan bijak adalah investasi bagi masa depan kita.</h2>
+    <p id="description">Mari bersama belajar mengenai pengolahan sampah dengan baik, agar bumi ini terjaga, bersih dan nyaman ditempati.</p>
+    </div>
+</section>
+<div class="form">
+    <form id="myForm">
+        <input type="text" id="name" placeholder="Nama">
+        <input type="text" id="city" placeholder="Kota">
+        <input type="email" id="email" placeholder="Email">
+        <input type="number" id="zip-code" placeholder="Kode Pos">
+        <label for="status" id="check">Dengan ini saya menyatakan data yang diisi pada form ini adalah benar dan telah sesuai</label>
+        <input type="checkbox" id="status">
+        <br>
+        <button type="submit" id="submit-form">Submit</button>
+    </form>
+    <div id="warning"></div>
+</div>
+<hr>
+<footer>
+    <div class="footer">
+        <h4>Infinite Trash 2023</h4>
+    </div>
+</footer>
+<script src="script.js"></script>
+</body>
+</html>
